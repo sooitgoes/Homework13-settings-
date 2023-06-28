@@ -10,7 +10,11 @@ import UIKit
 class SettingsViewController: UIViewController {
 
     // MARK: - UI Elements
-
+    private lazy var tableView: UITableView = {
+        let table = UITableView()
+        table.translatesAutoresizingMaskIntoConstraints = false
+        return table
+    }()
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -24,12 +28,15 @@ class SettingsViewController: UIViewController {
 
     // MARK: - Setups
     private func setupHierarchy() {
-
+        view.addSubview(tableView)
     }
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
-
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            tableView.leftAnchor.constraint(equalTo: view.leftAnchor)
         ])
     }
 }
