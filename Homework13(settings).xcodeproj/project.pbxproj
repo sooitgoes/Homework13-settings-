@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D1895E5F2A4DBAEB00EA766C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1895E5E2A4DBAEB00EA766C /* Model.swift */; };
+		D1895E612A4DEB0200EA766C /* DefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1895E602A4DEB0200EA766C /* DefaultTableViewCell.swift */; };
 		D1914EBD2A4C2DBC00428DA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1914EBC2A4C2DBC00428DA9 /* AppDelegate.swift */; };
 		D1914EBF2A4C2DBC00428DA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1914EBE2A4C2DBC00428DA9 /* SceneDelegate.swift */; };
 		D1914EC12A4C2DBC00428DA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1914EC02A4C2DBC00428DA9 /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		D1895E5E2A4DBAEB00EA766C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		D1895E602A4DEB0200EA766C /* DefaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTableViewCell.swift; sourceTree = "<group>"; };
 		D1914EB92A4C2DBC00428DA9 /* Homework13(settings).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Homework13(settings).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1914EBC2A4C2DBC00428DA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1914EBE2A4C2DBC00428DA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				D1B021842A4C358F001FD968 /* SettingsViewController.swift */,
 				D1914EC72A4C2DBD00428DA9 /* LaunchScreen.storyboard */,
 				D1895E5E2A4DBAEB00EA766C /* Model.swift */,
+				D1895E602A4DEB0200EA766C /* DefaultTableViewCell.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1895E5F2A4DBAEB00EA766C /* Model.swift in Sources */,
+				D1895E612A4DEB0200EA766C /* DefaultTableViewCell.swift in Sources */,
 				D1914EC12A4C2DBC00428DA9 /* ViewController.swift in Sources */,
 				D1914EBD2A4C2DBC00428DA9 /* AppDelegate.swift in Sources */,
 				D1914EBF2A4C2DBC00428DA9 /* SceneDelegate.swift in Sources */,
