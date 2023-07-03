@@ -17,6 +17,7 @@ class SettingsViewController: UIViewController {
         table.register(TitleTableViewCell.self, forCellReuseIdentifier: "title")
         table.register(LabelTableViewCell.self, forCellReuseIdentifier: "label")
         table.register(SwitchTableViewCell.self, forCellReuseIdentifier: "switch")
+        table.dataSource = self
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
@@ -24,6 +25,7 @@ class SettingsViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        dataSettings = Settings.infoSettings
         view.backgroundColor = .white
         title = "Настройки"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -44,4 +46,19 @@ class SettingsViewController: UIViewController {
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor)
         ])
     }
+}
+
+extension SettingsViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return dataSettings?.count ?? Int()
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataSettings?[section].count ?? Int()
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+
+
 }
