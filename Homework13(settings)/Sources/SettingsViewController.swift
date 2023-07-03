@@ -18,6 +18,7 @@ class SettingsViewController: UIViewController {
         table.register(LabelTableViewCell.self, forCellReuseIdentifier: "label")
         table.register(SwitchTableViewCell.self, forCellReuseIdentifier: "switch")
         table.dataSource = self
+        table.delegate = self
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
@@ -48,7 +49,7 @@ class SettingsViewController: UIViewController {
     }
 }
 
-extension SettingsViewController: UITableViewDataSource {
+extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return dataSettings?.count ?? Int()
     }
@@ -63,14 +64,17 @@ extension SettingsViewController: UITableViewDataSource {
         case .basic:
             let cell = tableView.dequeueReusableCell(withIdentifier: "default", for: indexPath) as? DefaultTableViewCell
             cell?.settings = dataSettings?[indexPath.section] [indexPath.row]
+            cell?.accessoryType = .disclosureIndicator
             return cell ?? UITableViewCell()
         case .subtitle:
             let cell = tableView.dequeueReusableCell(withIdentifier: "title", for: indexPath) as? TitleTableViewCell
             cell?.settings = dataSettings?[indexPath.section] [indexPath.row]
+            cell?.accessoryType = .disclosureIndicator
             return cell ?? UITableViewCell()
         case .withLabel:
             let cell = tableView.dequeueReusableCell(withIdentifier: "label", for: indexPath) as? LabelTableViewCell
             cell?.settings = dataSettings?[indexPath.section] [indexPath.row]
+            cell?.accessoryType = .disclosureIndicator
             return cell ?? UITableViewCell()
         case .withSwitch:
             let cell = tableView.dequeueReusableCell(withIdentifier: "switch", for: indexPath) as? SwitchTableViewCell
@@ -79,5 +83,13 @@ extension SettingsViewController: UITableViewDataSource {
         default:
             return UITableViewCell()
         }
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let cellType = dataSettings?[indexPath.section] [indexPath.row]
+        if cellType?.type == .subtitle {
+            return 70
+        }
+        return 44
     }
 }
