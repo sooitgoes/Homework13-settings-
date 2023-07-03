@@ -8,7 +8,7 @@
 import UIKit
 
 enum CellType {
-    case `default`
+    case basic
     case subtitle
     case withSwitch
     case withLabel
@@ -47,6 +47,7 @@ struct Settings {
     let type: CellType
     let name: String
     let icon: UIImage?
+
 }
 
 extension Settings {
@@ -58,21 +59,21 @@ extension Settings {
          Settings(type: .withLabel, name: "Сотовая связь", icon: Icons.cellularData.image),
          Settings(type: .withLabel, name: "Режим модема", icon: Icons.modem.image),
          Settings(type: .withSwitch, name: "VPN", icon: Icons.vpn.image)],
-        [Settings(type: .default, name: "Уведомления", icon: Icons.notification.image),
-         Settings(type: .default, name: "Звуки, тактильные сигналы", icon: Icons.sound.image),
-         Settings(type: .default, name: "Фокусирование", icon: Icons.focusing.image),
-         Settings(type: .default, name: "Экранное время", icon: Icons.screenTime.image)],
-        [Settings(type: .default, name: "Основные", icon: Icons.basicSettings.image),
-         Settings(type: .default, name: "Пункт управления", icon: Icons.controlPoint.image),
-         Settings(type: .default, name: "Экран и яркость", icon: Icons.screenAndBrightness.image),
-         Settings(type: .default, name: "Экран «Домой»", icon: Icons.screenHome.image),
-         Settings(type: .default, name: "Универсальный доступ", icon: Icons.universalAccess.image),
-         Settings(type: .default, name: "Обои", icon: Icons.wallpaper.image),
-         Settings(type: .default, name: "Siri И Поиск", icon: Icons.siri.image),
-         Settings(type: .default, name: "Face ID и код-пароль", icon: Icons.faceId.image),
-         Settings(type: .default, name: "Экстренный вызов - SOS", icon: Icons.sos.image),
-         Settings(type: .default, name: "Аккумулятор", icon: Icons.battery.image),
-         Settings(type: .default, name: "Кофидициальность и безопасность", icon: Icons.confidantionaly.image)]
+        [Settings(type: .basic, name: "Уведомления", icon: Icons.notification.image),
+         Settings(type: .basic, name: "Звуки, тактильные сигналы", icon: Icons.sound.image),
+         Settings(type: .basic, name: "Фокусирование", icon: Icons.focusing.image),
+         Settings(type: .basic, name: "Экранное время", icon: Icons.screenTime.image)],
+        [Settings(type: .basic, name: "Основные", icon: Icons.basicSettings.image),
+         Settings(type: .basic, name: "Пункт управления", icon: Icons.controlPoint.image),
+         Settings(type: .basic, name: "Экран и яркость", icon: Icons.screenAndBrightness.image),
+         Settings(type: .basic, name: "Экран «Домой»", icon: Icons.screenHome.image),
+         Settings(type: .basic, name: "Универсальный доступ", icon: Icons.universalAccess.image),
+         Settings(type: .basic, name: "Обои", icon: Icons.wallpaper.image),
+         Settings(type: .basic, name: "Siri И Поиск", icon: Icons.siri.image),
+         Settings(type: .basic, name: "Face ID и код-пароль", icon: Icons.faceId.image),
+         Settings(type: .basic, name: "Экстренный вызов - SOS", icon: Icons.sos.image),
+         Settings(type: .basic, name: "Аккумулятор", icon: Icons.battery.image),
+         Settings(type: .basic, name: "Кофидициальность и безопасность", icon: Icons.confidantionaly.image)]
     ]
 }
 
