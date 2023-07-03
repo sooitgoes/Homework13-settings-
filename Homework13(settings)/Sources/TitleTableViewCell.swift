@@ -17,13 +17,15 @@ class TitleTableViewCell: UITableViewCell {
     // MARK: - UI Elements
     private lazy var name: UILabel = {
         let name = UILabel()
-        name.font = .systemFont(ofSize: 15, weight: .regular)
+        name.font = .systemFont(ofSize: 20, weight: .regular)
         return name
     }()
 
     private lazy var initials: UILabel = {
         let initials = UILabel()
-        initials.font = .systemFont(ofSize: 20, weight: .bold)
+        initials.text = "МЛ"
+        initials.textColor = .white
+        initials.font = .systemFont(ofSize: 25, weight: .regular)
         initials.translatesAutoresizingMaskIntoConstraints = false
         return initials
     }()
@@ -31,14 +33,15 @@ class TitleTableViewCell: UITableViewCell {
     private lazy var definition: UILabel = {
         let definition = UILabel()
         definition.text = "Apple ID, iCloud, контент и покупки"
-        definition.font = .systemFont(ofSize: 15, weight: .regular)
+        definition.font = .systemFont(ofSize: 12, weight: .light)
         return definition
     }()
 
     private lazy var image: UIImageView = {
         let image = UIImageView()
         image.clipsToBounds = true
-        image.layer.cornerRadius = 15
+        image.layer.cornerRadius = 30
+        image.backgroundColor = .darkGray
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
@@ -48,6 +51,7 @@ class TitleTableViewCell: UITableViewCell {
         stack.axis = .vertical
         stack.alignment = .leading
         stack.distribution = .fill
+        stack.spacing = 2
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
@@ -74,11 +78,24 @@ class TitleTableViewCell: UITableViewCell {
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
+            initials.centerXAnchor.constraint(equalTo: image.centerXAnchor),
+            initials.centerYAnchor.constraint(equalTo: image.centerYAnchor),
 
+            image.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
+            image.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 15),
+            image.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 5),
+            image.heightAnchor.constraint(equalToConstant: 60),
+            image.widthAnchor.constraint(equalToConstant: 60),
+
+            stack.centerYAnchor.constraint(equalTo: image.centerYAnchor),
+            stack.leftAnchor.constraint(equalTo: image.rightAnchor, constant: 15)
         ])
     }
 
     // MARK: - Reuse
-
-
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.accessoryType = .none
+        self.settings = nil
+    }
 }
