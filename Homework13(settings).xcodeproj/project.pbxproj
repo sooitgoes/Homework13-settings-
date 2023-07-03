@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D10380E52A52F23C00727106 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10380E42A52F23C00727106 /* SwitchTableViewCell.swift */; };
 		D1895E5F2A4DBAEB00EA766C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1895E5E2A4DBAEB00EA766C /* Model.swift */; };
 		D1895E612A4DEB0200EA766C /* DefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1895E602A4DEB0200EA766C /* DefaultTableViewCell.swift */; };
 		D1895E632A4DF6B600EA766C /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1895E622A4DF6B600EA766C /* TitleTableViewCell.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D10380E42A52F23C00727106 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
 		D1895E5E2A4DBAEB00EA766C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		D1895E602A4DEB0200EA766C /* DefaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTableViewCell.swift; sourceTree = "<group>"; };
 		D1895E622A4DF6B600EA766C /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				D1895E602A4DEB0200EA766C /* DefaultTableViewCell.swift */,
 				D1895E622A4DF6B600EA766C /* TitleTableViewCell.swift */,
 				D1895E642A4DFE9700EA766C /* LabelTableViewCell.swift */,
+				D10380E42A52F23C00727106 /* SwitchTableViewCell.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				D1895E612A4DEB0200EA766C /* DefaultTableViewCell.swift in Sources */,
 				D1914EC12A4C2DBC00428DA9 /* ViewController.swift in Sources */,
 				D1914EBD2A4C2DBC00428DA9 /* AppDelegate.swift in Sources */,
+				D10380E52A52F23C00727106 /* SwitchTableViewCell.swift in Sources */,
 				D1914EBF2A4C2DBC00428DA9 /* SceneDelegate.swift in Sources */,
 				D1895E652A4DFE9700EA766C /* LabelTableViewCell.swift in Sources */,
 				D1B021852A4C358F001FD968 /* SettingsViewController.swift in Sources */,
