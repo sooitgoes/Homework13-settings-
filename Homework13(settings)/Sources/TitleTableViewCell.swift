@@ -8,6 +8,11 @@
 import UIKit
 
 class TitleTableViewCell: UITableViewCell {
+    var settings: Settings? {
+        didSet {
+            name.text = settings?.name
+        }
+    }
 
     // MARK: - UI Elements
     private lazy var name: UILabel = {

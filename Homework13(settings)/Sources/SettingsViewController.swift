@@ -57,8 +57,27 @@ extension SettingsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cellType = dataSettings?[indexPath.section] [indexPath.row]
+
+        switch cellType?.type {
+        case .basic:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "default", for: indexPath) as? DefaultTableViewCell
+            cell?.settings = dataSettings?[indexPath.section] [indexPath.row]
+            return cell ?? UITableViewCell()
+        case .subtitle:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "title", for: indexPath) as? TitleTableViewCell
+            cell?.settings = dataSettings?[indexPath.section] [indexPath.row]
+            return cell ?? UITableViewCell()
+        case .withLabel:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "label", for: indexPath) as? LabelTableViewCell
+            cell?.settings = dataSettings?[indexPath.section] [indexPath.row]
+            return cell ?? UITableViewCell()
+        case .withSwitch:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "switch", for: indexPath) as? SwitchTableViewCell
+            cell?.settings = dataSettings?[indexPath.section] [indexPath.row]
+            return cell ?? UITableViewCell()
+        default:
+            return UITableViewCell()
+        }
     }
-
-
 }

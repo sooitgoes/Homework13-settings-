@@ -8,6 +8,12 @@
 import UIKit
 
 class SwitchTableViewCell: UITableViewCell {
+    var settings: Settings? {
+        didSet {
+            name.text = settings?.name
+            icon.image = settings?.icon
+        }
+    }
 
         // MARK: - UI Elements
         private lazy var name: UILabel = {
