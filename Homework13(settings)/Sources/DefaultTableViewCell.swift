@@ -45,8 +45,8 @@ class DefaultTableViewCell: UITableViewCell {
     // MARK: - Setup
     private func setupHierarchy() {
         imageContainer.addSubview(icon)
-        contentView.addSubview(imageContainer)
-        contentView.addSubview(name)
+        addSubview(imageContainer)
+        addSubview(name)
     }
 
     private func setupLayout() {

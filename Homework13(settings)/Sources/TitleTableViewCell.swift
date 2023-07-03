@@ -63,8 +63,8 @@ class TitleTableViewCell: UITableViewCell {
         stack.addArrangedSubview(name)
         stack.addArrangedSubview(definition)
         image.addSubview(initials)
-        contentView.addSubview(image)
-        contentView.addSubview(stack)
+        addSubview(image)
+        addSubview(stack)
     }
 
     private func setupLayout() {
