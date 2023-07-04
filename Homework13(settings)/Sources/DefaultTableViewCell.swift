@@ -12,6 +12,25 @@ class DefaultTableViewCell: UITableViewCell {
         didSet {
             name.text = settings?.name
             icon.image = settings?.icon
+
+            switch name.text {
+            case "Уведомления", "Экстренный вызов - SOS":
+                imageContainer.backgroundColor = .systemRed
+            case "Звуки, тактильные сигналы":
+                imageContainer.backgroundColor = .systemPink
+            case "Фокусирование", "Экранное время":
+                imageContainer.backgroundColor = .systemIndigo
+            case "Основные", "Пункт управления":
+                imageContainer.backgroundColor = .opaqueSeparator
+            case "Обои":
+                imageContainer.backgroundColor = .systemCyan
+            case "Siri И Поиск":
+                imageContainer.backgroundColor = .black
+            case "Face ID и код-пароль", "Аккумулятор":
+                imageContainer.backgroundColor = .systemGreen
+            default:
+                imageContainer.backgroundColor = .systemBlue
+            }
         }
     }
 
@@ -19,6 +38,7 @@ class DefaultTableViewCell: UITableViewCell {
     private lazy var name: UILabel = {
         let name = UILabel()
         name.font = .systemFont(ofSize: 15, weight: .regular)
+        name.numberOfLines = 2
         name.translatesAutoresizingMaskIntoConstraints = false
         return name
     }()
@@ -32,7 +52,7 @@ class DefaultTableViewCell: UITableViewCell {
     private lazy var imageContainer: UIView = {
         let view = UIView()
         view.clipsToBounds = true
-        view.layer.cornerRadius = 10
+        view.layer.cornerRadius = 7
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -51,17 +71,31 @@ class DefaultTableViewCell: UITableViewCell {
     // MARK: - Setup
     private func setupHierarchy() {
         imageContainer.addSubview(icon)
-        addSubview(imageContainer)
+        contentView.addSubview(imageContainer)
         addSubview(name)
     }
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
+            icon.centerYAnchor.constraint(equalTo: imageContainer.centerYAnchor),
+            icon.centerXAnchor.constraint(equalTo: imageContainer.centerXAnchor),
+            icon.heightAnchor.constraint(equalToConstant: 20),
+            icon.widthAnchor.constraint(equalToConstant: 20),
+            
+            imageContainer.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            imageContainer.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
+            imageContainer.heightAnchor.constraint(equalToConstant: 30),
+            imageContainer.widthAnchor.constraint(equalToConstant: 30),
 
+            name.centerYAnchor.constraint(equalTo: imageContainer.centerYAnchor),
+            name.leftAnchor.constraint(equalTo: imageContainer.rightAnchor, constant: 15)
         ])
     }
 
     // MARK: - Reuse
-
-
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.accessoryType = .none
+        self.settings = nil
+    }
 }
