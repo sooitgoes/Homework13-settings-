@@ -12,6 +12,9 @@ class LabelTableViewCell: UITableViewCell {
         didSet {
             name.text = settings?.name
             icon.image = settings?.icon
+            guard name.text != "Сотовая связь" && name.text != "Режим модема" else {
+                return imageContainer.backgroundColor = .systemGreen
+            }
         }
     }
 
@@ -40,7 +43,8 @@ class LabelTableViewCell: UITableViewCell {
     private lazy var imageContainer: UIView = {
         let view = UIView()
         view.clipsToBounds = true
-        view.layer.cornerRadius = 10
+        view.layer.cornerRadius = 7
+        view.backgroundColor = .systemBlue
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -66,12 +70,29 @@ class LabelTableViewCell: UITableViewCell {
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
+            icon.centerYAnchor.constraint(equalTo: imageContainer.centerYAnchor),
+            icon.centerXAnchor.constraint(equalTo: imageContainer.centerXAnchor),
+            icon.heightAnchor.constraint(equalToConstant: 15),
+            icon.widthAnchor.constraint(equalToConstant: 20),
 
+            imageContainer.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            imageContainer.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
+            imageContainer.heightAnchor.constraint(equalToConstant: 30),
+            imageContainer.widthAnchor.constraint(equalToConstant: 30),
+
+            name.centerYAnchor.constraint(equalTo: imageContainer.centerYAnchor),
+            name.leftAnchor.constraint(equalTo: imageContainer.rightAnchor, constant: 15),
+
+            labelOff.centerYAnchor.constraint(equalTo: imageContainer.centerYAnchor),
+            labelOff.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10)
         ])
     }
 
     // MARK: - Reuse
-
-
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.accessoryType = .none
+        self.settings = nil
+    }
 }
 

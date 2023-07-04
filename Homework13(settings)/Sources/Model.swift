@@ -42,7 +42,6 @@ enum Icons: String {
     }
 }
 
-
 struct Settings {
     let type: CellType
     let name: String
