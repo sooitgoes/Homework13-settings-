@@ -72,7 +72,7 @@ extension Settings {
          Settings(type: .basic, name: "Face ID и код-пароль", icon: Icons.faceId.image),
          Settings(type: .basic, name: "Экстренный вызов - SOS", icon: Icons.sos.image),
          Settings(type: .basic, name: "Аккумулятор", icon: Icons.battery.image),
-         Settings(type: .basic, name: "Кофидициальность и безопасность", icon: Icons.confidantionaly.image)]
+         Settings(type: .basic, name: "Кофидициальность \nи безопасность", icon: Icons.confidantionaly.image)]
     ]
 }
 
