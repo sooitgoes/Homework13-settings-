@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1002F7A2A545E0D00B49A79 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1002F792A545E0D00B49A79 /* DetailViewController.swift */; };
 		D10380E52A52F23C00727106 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10380E42A52F23C00727106 /* SwitchTableViewCell.swift */; };
 		D1895E5F2A4DBAEB00EA766C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1895E5E2A4DBAEB00EA766C /* Model.swift */; };
 		D1895E612A4DEB0200EA766C /* DefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1895E602A4DEB0200EA766C /* DefaultTableViewCell.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D1002F792A545E0D00B49A79 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		D10380E42A52F23C00727106 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
 		D1895E5E2A4DBAEB00EA766C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		D1895E602A4DEB0200EA766C /* DefaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTableViewCell.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				D1B021842A4C358F001FD968 /* SettingsViewController.swift */,
+				D1002F792A545E0D00B49A79 /* DetailViewController.swift */,
 				D1895E602A4DEB0200EA766C /* DefaultTableViewCell.swift */,
 				D1895E622A4DF6B600EA766C /* TitleTableViewCell.swift */,
 				D1895E642A4DFE9700EA766C /* LabelTableViewCell.swift */,
@@ -173,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1002F7A2A545E0D00B49A79 /* DetailViewController.swift in Sources */,
 				D1895E632A4DF6B600EA766C /* TitleTableViewCell.swift in Sources */,
 				D1895E5F2A4DBAEB00EA766C /* Model.swift in Sources */,
 				D1895E612A4DEB0200EA766C /* DefaultTableViewCell.swift in Sources */,
