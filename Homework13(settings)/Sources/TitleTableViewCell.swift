@@ -24,7 +24,7 @@ class TitleTableViewCell: UITableViewCell {
     private lazy var initials: UILabel = {
         let initials = UILabel()
         initials.text = "МЛ"
-        initials.textColor = .white
+        initials.textColor = .white 
         initials.font = .systemFont(ofSize: 25, weight: .regular)
         initials.translatesAutoresizingMaskIntoConstraints = false
         return initials
@@ -41,7 +41,7 @@ class TitleTableViewCell: UITableViewCell {
         let image = UIImageView()
         image.clipsToBounds = true
         image.layer.cornerRadius = 30
-        image.backgroundColor = .darkGray
+        image.backgroundColor = .systemGray
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
@@ -83,7 +83,7 @@ class TitleTableViewCell: UITableViewCell {
 
             image.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             image.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 15),
-            image.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 5),
+            image.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
             image.heightAnchor.constraint(equalToConstant: 60),
             image.widthAnchor.constraint(equalToConstant: 60),
 
@@ -99,3 +99,4 @@ class TitleTableViewCell: UITableViewCell {
         self.settings = nil
     }
 }
+
