@@ -26,8 +26,10 @@ class DefaultTableViewCell: UITableViewCell {
                 imageContainer.backgroundColor = .systemCyan
             case "Siri И Поиск":
                 imageContainer.backgroundColor = .black
-            case "Face ID и код-пароль", "Аккумулятор":
+            case "Face ID и код-пароль", "Аккумулятор", "Режим модема", "Сотовая связь":
                 imageContainer.backgroundColor = .systemGreen
+            case "Авиарежим":
+                imageContainer.backgroundColor = .systemOrange
             default:
                 imageContainer.backgroundColor = .systemBlue
             }
@@ -35,7 +37,7 @@ class DefaultTableViewCell: UITableViewCell {
     }
 
     // MARK: - UI Elements
-    private lazy var name: UILabel = {
+    lazy var name: UILabel = {
         let name = UILabel()
         name.font = .systemFont(ofSize: 15, weight: .regular)
         name.numberOfLines = 2
@@ -43,13 +45,13 @@ class DefaultTableViewCell: UITableViewCell {
         return name
     }()
 
-    private lazy var icon: UIImageView = {
+    lazy var icon: UIImageView = {
         let icon = UIImageView()
         icon.translatesAutoresizingMaskIntoConstraints = false
         return icon
     }()
 
-    private lazy var imageContainer: UIView = {
+    lazy var imageContainer: UIView = {
         let view = UIView()
         view.clipsToBounds = true
         view.layer.cornerRadius = 7
@@ -69,17 +71,17 @@ class DefaultTableViewCell: UITableViewCell {
     }
 
     // MARK: - Setup
-    private func setupHierarchy() {
+    func setupHierarchy() {
         imageContainer.addSubview(icon)
         contentView.addSubview(imageContainer)
         addSubview(name)
     }
 
-    private func setupLayout() {
+    func setupLayout() {
         NSLayoutConstraint.activate([
             icon.centerYAnchor.constraint(equalTo: imageContainer.centerYAnchor),
             icon.centerXAnchor.constraint(equalTo: imageContainer.centerXAnchor),
-            icon.heightAnchor.constraint(equalToConstant: 20),
+            icon.heightAnchor.constraint(equalToConstant: 15),
             icon.widthAnchor.constraint(equalToConstant: 20),
             
             imageContainer.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
