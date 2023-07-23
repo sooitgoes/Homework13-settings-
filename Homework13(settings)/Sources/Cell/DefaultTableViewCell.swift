@@ -13,7 +13,7 @@ class DefaultTableViewCell: UITableViewCell {
     var settings: Settings? {
         didSet {
             name.text = settings?.name
-            icon.image = settings?.icon
+            icon.image = UIImage(named: settings?.icon ?? "")
 
             switch name.text {
             case "Уведомления", "Экстренный вызов - SOS":

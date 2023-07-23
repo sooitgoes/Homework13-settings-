@@ -55,6 +55,6 @@ class DetailViewController: UIViewController {
 
     private func prepareData() {
         name.text = settings?.name
-        icon.image = settings?.icon
+        icon.image = UIImage(named: settings?.icon ?? "")
     }
 }
