@@ -8,6 +8,8 @@
 import UIKit
 
 class DefaultTableViewCell: UITableViewCell {
+    static let identifier = "default"
+
     var settings: Settings? {
         didSet {
             name.text = settings?.name
@@ -47,6 +49,8 @@ class DefaultTableViewCell: UITableViewCell {
 
     lazy var icon: UIImageView = {
         let icon = UIImageView()
+        icon.clipsToBounds = true
+        icon.contentMode = .scaleAspectFit
         icon.translatesAutoresizingMaskIntoConstraints = false
         return icon
     }()

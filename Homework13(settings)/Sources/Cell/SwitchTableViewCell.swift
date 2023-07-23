@@ -8,7 +8,8 @@
 import UIKit
 
 class SwitchTableViewCell: DefaultTableViewCell {
-    
+    static let switchIdentifier = "switch"
+
     private lazy var switchControl: UISwitch = {
         let swich = UISwitch()
         swich.translatesAutoresizingMaskIntoConstraints = false

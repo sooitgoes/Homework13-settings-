@@ -8,6 +8,8 @@
 import UIKit
 
 class TitleTableViewCell: UITableViewCell {
+    static let identifier = "title"
+
     var settings: Settings? {
         didSet {
             name.text = settings?.name
@@ -40,6 +42,7 @@ class TitleTableViewCell: UITableViewCell {
     private lazy var image: UIImageView = {
         let image = UIImageView()
         image.clipsToBounds = true
+        image.contentMode = .scaleAspectFit
         image.layer.cornerRadius = 30
         image.backgroundColor = .systemGray
         image.translatesAutoresizingMaskIntoConstraints = false

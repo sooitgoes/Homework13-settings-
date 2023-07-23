@@ -8,6 +8,7 @@
 import UIKit
 
 class LabelTableViewCell: DefaultTableViewCell {
+    static let labelIdentifier = "label"
 
     private lazy var labelOff: UILabel = {
         let labelOff = UILabel()

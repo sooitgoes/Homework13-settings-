@@ -31,7 +31,7 @@ class DetailViewController: UIViewController {
         view.backgroundColor = .systemMint
         setupHierarchy()
         setupLayout()
-        fillData()
+        prepareData()
     }
 
     // MARK: - Setup
@@ -53,7 +53,7 @@ class DetailViewController: UIViewController {
         ])
     }
 
-    private func fillData() {
+    private func prepareData() {
         name.text = settings?.name
         icon.image = settings?.icon
     }

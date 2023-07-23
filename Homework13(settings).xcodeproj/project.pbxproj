@@ -47,6 +47,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D11116EB2A6D20E400F4617B /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D1914EC72A4C2DBD00428DA9 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		D11116EC2A6D21FD00F4617B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D1895E602A4DEB0200EA766C /* DefaultTableViewCell.swift */,
+				D1895E622A4DF6B600EA766C /* TitleTableViewCell.swift */,
+				D1895E642A4DFE9700EA766C /* LabelTableViewCell.swift */,
+				D10380E42A52F23C00727106 /* SwitchTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		D11116ED2A6D221900F4617B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D1895E5E2A4DBAEB00EA766C /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D11116EE2A6D224B00F4617B /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D1B021842A4C358F001FD968 /* SettingsViewController.swift */,
+			);
+			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		D11116EF2A6D226100F4617B /* DetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D1002F792A545E0D00B49A79 /* DetailViewController.swift */,
+			);
+			path = DetailViewController;
+			sourceTree = "<group>";
+		};
 		D1914EB02A4C2DBC00428DA9 = {
 			isa = PBXGroup;
 			children = (
@@ -66,9 +109,9 @@
 		D1914EBB2A4C2DBC00428DA9 /* Homework13(settings) */ = {
 			isa = PBXGroup;
 			children = (
+				D1B021812A4C30D9001FD968 /* App */,
 				D1B021822A4C30E4001FD968 /* Resources */,
 				D1B021832A4C30F5001FD968 /* Sources */,
-				D1B021812A4C30D9001FD968 /* App */,
 			);
 			path = "Homework13(settings)";
 			sourceTree = "<group>";
@@ -87,6 +130,7 @@
 			children = (
 				D1914EC52A4C2DBD00428DA9 /* Assets.xcassets */,
 				D1914ECA2A4C2DBD00428DA9 /* Info.plist */,
+				D11116EB2A6D20E400F4617B /* Storyboards */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -94,14 +138,10 @@
 		D1B021832A4C30F5001FD968 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				D1B021842A4C358F001FD968 /* SettingsViewController.swift */,
-				D1002F792A545E0D00B49A79 /* DetailViewController.swift */,
-				D1895E602A4DEB0200EA766C /* DefaultTableViewCell.swift */,
-				D1895E622A4DF6B600EA766C /* TitleTableViewCell.swift */,
-				D1895E642A4DFE9700EA766C /* LabelTableViewCell.swift */,
-				D10380E42A52F23C00727106 /* SwitchTableViewCell.swift */,
-				D1895E5E2A4DBAEB00EA766C /* Model.swift */,
-				D1914EC72A4C2DBD00428DA9 /* LaunchScreen.storyboard */,
+				D11116EE2A6D224B00F4617B /* MainViewController */,
+				D11116EF2A6D226100F4617B /* DetailViewController */,
+				D11116EC2A6D21FD00F4617B /* Cell */,
+				D11116ED2A6D221900F4617B /* Model */,
 			);
 			path = Sources;
 			sourceTree = "<group>";

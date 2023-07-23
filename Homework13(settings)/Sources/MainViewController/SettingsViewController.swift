@@ -13,10 +13,6 @@ class SettingsViewController: UIViewController {
     // MARK: - UI Elements
     private lazy var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .insetGrouped)
-        table.register(DefaultTableViewCell.self, forCellReuseIdentifier: "default")
-        table.register(TitleTableViewCell.self, forCellReuseIdentifier: "title")
-        table.register(LabelTableViewCell.self, forCellReuseIdentifier: "label")
-        table.register(SwitchTableViewCell.self, forCellReuseIdentifier: "switch")
         table.dataSource = self
         table.delegate = self
         table.translatesAutoresizingMaskIntoConstraints = false
@@ -30,6 +26,7 @@ class SettingsViewController: UIViewController {
         view.backgroundColor = .white
         title = "Настройки"
         navigationController?.navigationBar.prefersLargeTitles = true
+        registerCellForTable()
         setupHierarchy()
         setupLayout()
     }
@@ -47,14 +44,21 @@ class SettingsViewController: UIViewController {
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor)
         ])
     }
+
+    private func registerCellForTable() {
+        tableView.register(DefaultTableViewCell.self, forCellReuseIdentifier: DefaultTableViewCell.identifier)
+        tableView.register(TitleTableViewCell.self, forCellReuseIdentifier: TitleTableViewCell.identifier)
+        tableView.register(LabelTableViewCell.self, forCellReuseIdentifier: LabelTableViewCell.labelIdentifier)
+        tableView.register(SwitchTableViewCell.self, forCellReuseIdentifier: SwitchTableViewCell.switchIdentifier)
+    }
 }
 
 extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return dataSettings?.count ?? Int()
+        return dataSettings?.count ?? 0
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSettings?[section].count ?? Int()
+        return dataSettings?[section].count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -62,22 +66,22 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
 
         switch cellType?.type {
         case .basic:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "default", for: indexPath) as? DefaultTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: DefaultTableViewCell.identifier, for: indexPath) as? DefaultTableViewCell
             cell?.settings = dataSettings?[indexPath.section] [indexPath.row]
             cell?.accessoryType = .disclosureIndicator
             return cell ?? UITableViewCell()
         case .subtitle:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "title", for: indexPath) as? TitleTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.identifier, for: indexPath) as? TitleTableViewCell
             cell?.settings = dataSettings?[indexPath.section] [indexPath.row]
             cell?.accessoryType = .disclosureIndicator
             return cell ?? UITableViewCell()
         case .withLabel:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "label", for: indexPath) as? LabelTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: LabelTableViewCell.labelIdentifier, for: indexPath) as? LabelTableViewCell
             cell?.settings = dataSettings?[indexPath.section] [indexPath.row]
             cell?.accessoryType = .disclosureIndicator
             return cell ?? UITableViewCell()
         case .withSwitch:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "switch", for: indexPath) as? SwitchTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.switchIdentifier, for: indexPath) as? SwitchTableViewCell
             cell?.settings = dataSettings?[indexPath.section] [indexPath.row]
             return cell ?? UITableViewCell()
         default:
