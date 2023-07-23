@@ -1,14 +1,15 @@
 //
-//  SettingsViewController.swift
+//  SettingView.swift
 //  Homework13(settings)
 //
-//  Created by Михаил Латий on 28.06.2023.
+//  Created by Михаил Латий on 23.07.2023.
 //
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingView: UIView {
     private var dataSettings: [[Settings]]?
+    var navigation: (() -> Void)?
 
     // MARK: - UI Elements
     private lazy var tableView: UITableView = {
@@ -20,28 +21,29 @@ class SettingsViewController: UIViewController {
     }()
 
     // MARK: - Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        dataSettings = Settings.infoSettings
-        view.backgroundColor = .white
-        title = "Настройки"
-        navigationController?.navigationBar.prefersLargeTitles = true
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = .white
         registerCellForTable()
         setupHierarchy()
         setupLayout()
     }
 
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     // MARK: - Setups
     private func setupHierarchy() {
-        view.addSubview(tableView)
+        addSubview(tableView)
     }
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            tableView.leftAnchor.constraint(equalTo: view.leftAnchor)
+            tableView.topAnchor.constraint(equalTo: topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            tableView.rightAnchor.constraint(equalTo: rightAnchor),
+            tableView.leftAnchor.constraint(equalTo: leftAnchor)
         ])
     }
 
@@ -51,9 +53,15 @@ class SettingsViewController: UIViewController {
         tableView.register(LabelTableViewCell.self, forCellReuseIdentifier: LabelTableViewCell.labelIdentifier)
         tableView.register(SwitchTableViewCell.self, forCellReuseIdentifier: SwitchTableViewCell.switchIdentifier)
     }
+
+    // MARK: - Configuration
+    func configureView(with models: [[Settings]]?) {
+        self.dataSettings = models
+        tableView.reloadData()
+    }
 }
 
-extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
+extension SettingView: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return dataSettings?.count ?? 0
     }
@@ -101,6 +109,8 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         let viewController = DetailViewController()
         tableView.deselectRow(at: indexPath, animated: true)
         viewController.settings = dataSettings?[indexPath.section] [indexPath.row]
-        navigationController?.pushViewController(viewController, animated: true)
+        navigation!()
     }
 }
+    
+
