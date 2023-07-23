@@ -9,7 +9,7 @@ import UIKit
 
 class SettingView: UIView {
     private var dataSettings: [[Settings]]?
-    var navigation: (() -> Void)?
+    var navigation: ((UIViewController) -> Void)?
 
     // MARK: - UI Elements
     private lazy var tableView: UITableView = {
@@ -109,7 +109,7 @@ extension SettingView: UITableViewDataSource, UITableViewDelegate {
         let viewController = DetailViewController()
         tableView.deselectRow(at: indexPath, animated: true)
         viewController.settings = dataSettings?[indexPath.section] [indexPath.row]
-        navigation!()
+        navigation!(viewController)
     }
 }
     
