@@ -8,8 +8,10 @@
 import UIKit
 
 class SettingView: UIView {
+    typealias Closure = (Settings) -> ()
+
     private var dataSettings: [[Settings]]?
-    var navigation: ((UIViewController) -> Void)?
+    var navigation: Closure?
 
     // MARK: - UI Elements
     private lazy var tableView: UITableView = {
@@ -106,11 +108,27 @@ extension SettingView: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewController = DetailViewController()
         tableView.deselectRow(at: indexPath, animated: true)
-        viewController.settings = dataSettings?[indexPath.section] [indexPath.row]
-        navigation!(viewController)
+        let model = dataSettings?[indexPath.section][indexPath.row]
+
+
+
+        switch model?.type {
+        case .basic:
+            pushToDetail(data: model)
+        case.subtitle:
+            pushToDetail(data: model)
+        case.withLabel:
+            pushToDetail(data: model)
+        case .withSwitch:
+            break
+        default:
+            break
+        }
+    }
+
+    private func pushToDetail(data: Settings?) {
+        guard let currentModel = data else { return }
+        navigation?(currentModel)
     }
 }
-    
-

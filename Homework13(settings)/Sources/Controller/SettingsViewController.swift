@@ -33,9 +33,10 @@ class SettingsViewController: UIViewController {
     }
 
     func goToDetailView() {
-        settingView?.navigation = { vc in
-//            let viewController = DetailViewController()
-            self.navigationController?.pushViewController(vc, animated: true)
+        settingView?.navigation = { [weak self] mod in
+            let viewController = DetailViewController()
+            viewController.settings = mod
+            self?.navigationController?.pushViewController(viewController, animated: true)
         }
     }
 }
